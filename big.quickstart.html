@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><title></title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type='text/css'>
+body {
+  font-family: 'Helvetica';
+  letter-spacing:-5px;
+  background:#fff;
+  background-size:100%;
+  color:#000;
+  margin:0;
+  padding:0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em, a {
+  font-style:normal;
+  color:#cf2937;
+}
+
+a {
+  background: #34d0e7;
+  color:#000;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0;
+  left:0;
+}
+</style><script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n];
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild.nodeName === 'IMG') {
+            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+            e.firstChild.style.display = 'none';
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 10) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() {
+        go(++cur % (s.length));
+    };
+    document.onkeydown = function(e) {
+        (e.which === 39) && go(Math.min(s.length - 1, ++cur));
+        (e.which === 37) && go(Math.max(0, --cur));
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+
+    go(cur);
+};
+</script></head><body>
+<div><em>CoffeeScript:</em> An Introduction</div>
+<div><em>My Name Is</em> Tristan O'Neil</div>
+<div>I Work At <em>Gristmill</em></div>
+<div><em>Ruby</em><br /> On Rails</div>
+<div><em>August 31st 2009</em><br /> Rails 3.1 Shipped</div>
+<div><em>Asset</em> Pipeline</div>
+<div><em>CoffeeScript</em> By Default</div>
+<div><em>Controversy</em> Ensues</div>
+<div><em>Regardless</em> I'm Compelled to Learn It</div>
+<div>I Fell In <em>&hearts;</em></div>
+<div><em>What</em> Is It?</div>
+<div><em>It's A</em> Programming Language</div>
+<div>That Compiles Down TO <em>JavaSript</em></div>
+<div>That Attempts To Fix All The Wrongs Of <em>JavaScript</em></div>
+<div><img src="good-parts.jpeg"></div>
+<div>Going <em>Back</em></div>
+<div>Brendan Eich <em>Creator of JS</em></div>
+<div>JS Had To <em>'Look Like Java'</em> Only Less So, Be Java’s Dumb Kid Brother or Boy-hostage Sidekick. Plus, It Had To Be Done In <em>Ten Days</em> Or Something Worse Than JS Would Have Happened.</div>
+<div>Enough <em>Hate</em></div>
+<div>Why Should You Use <em>CoffeeScript</em>?</div>
+<div>Easier To <em>Read</em></div>
+<div>Easier To <em>Write</em></div>
+<div>Easier <br />To <em>Maintain</em></div>
+<div>It's <em>Beautiful</em></div>
+<div>Python|Ruby <em>Hybrid</em></div>
+<div>Less Of<br /> <em>;</em> <em>{}</em> <em>()</em></div>
+<div>Less Cruft <em>More Code</em></div>
+<div>Speaking Of <em>Code</em>...</div>
+<div>Functions</div>
+<div><img src="js-function.png"></div>
+<div><img src="cs-function.png"></div>
+<div>Objects and <em>Arrays</em></div>
+<div><img src="js-object.png"></div>
+<div><img src="cs-object.png"></div>
+<div>Loops</div>
+<div><img src="cs-loop.png"></div>
+<div><img src="js-loop.png"></div>
+<div>Statements</div>
+<div><img src="cs-operators.png"></div>
+<div><img src="js-operators.png"></div>
+<div>Classes</div>
+<div><img src="cs-class.png"></div>
+<div><img src="js-class.png"></div>
+<div>Function <em>Binding</em></div>
+<div><img src="cs-function-binding.png"></div>
+<div><img src="js-function-binding.png"></div>
+<div>Lots Of Other <em>Features</em></div>
+<div>Resources</div>
+<div>coffeescript.org<br /> <em>js2coffee.org</em><br /> coffeescript.codeschool.com<br /> <em>The Little Book on CoffeeScript</em><br /> Programming in CoffeeScript</div>
